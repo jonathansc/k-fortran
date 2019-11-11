@@ -7,7 +7,7 @@ import random
 
 def visualize2d(filename):
     df = pandas.read_csv(filename, sep='\s+', names=['x', 'y', 'cluster', 'type'], header=None)
-    markers = {'c': 'X', 'p': '2'}
+    markers = {'c': 'X', 's': '2'}
     for kind in markers:
         d = df[df.type == kind]
         if kind == 'c':
@@ -29,7 +29,7 @@ def main(argv):
     if argv[1] == "visual":
         visualize2d("output/out.dat")
     elif argv[1] == "generate":
-        generate("input/in.dat", "input/groundtruth.dat", 10000, 5, 2, random.randint(0,101))
+        generate("input/in.dat", "input/groundtruth.dat", 100000, 50, 2, random.randint(0,10001))
     else:
         print(argv[0] + " visual")
 
